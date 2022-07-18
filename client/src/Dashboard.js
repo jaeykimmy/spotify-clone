@@ -7,7 +7,7 @@ import SpotifyWebApi from "spotify-web-api-node";
 import axios from "axios";
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "7dfec12877c04844b48af664c5ba67cc",
+  clientId: process.env.CLIENT_ID,
 });
 export default function Dashboard({ code }) {
   const accessToken = useAuth(code);

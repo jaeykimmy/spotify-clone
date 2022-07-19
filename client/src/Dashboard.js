@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import useAuth from "./useAuth";
 import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
+import DarkMode from "./DarkMode";
 import axios from "axios";
 
 const spotifyApi = new SpotifyWebApi({
@@ -71,6 +72,8 @@ export default function Dashboard({ code }) {
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+      <DarkMode />
+      <h1>Lyricfy</h1>
       <Form.Control
         type="search"
         placeholder="Search Songs/Artists"

@@ -15,6 +15,8 @@ export default function Dashboard({ code }) {
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
+  const [cancel, setCancel] = useState("");
+
   // console.log(searchResults)
 
   function chooseTrack(track) {
@@ -44,9 +46,8 @@ export default function Dashboard({ code }) {
     if (!search) return setSearchResults([]);
     if (!accessToken) return;
 
-    let cancel = false;
     spotifyApi.searchTracks(search).then((res) => {
-      if (cancel) return;
+      if (cancel === false) return;
       setSearchResults(
         res.body.tracks.items.map((track) => {
           const smallestAlbumImage = track.album.images.reduce(
@@ -65,8 +66,8 @@ export default function Dashboard({ code }) {
         })
       );
     });
-    return () => (cancel = true);
-  }, [search, accessToken]);
+    setCancel(true);
+  }, [search, accessToken, cancel]);
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>

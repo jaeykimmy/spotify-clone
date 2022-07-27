@@ -82,3 +82,12 @@ input:checked + .slider {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.search-form {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+.search-form:focus {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}

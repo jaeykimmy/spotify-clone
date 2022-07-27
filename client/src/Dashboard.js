@@ -6,6 +6,7 @@ import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
 import DarkMode from "./DarkMode";
 import axios from "axios";
+import "./DarkMode.css";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENT_ID,
@@ -79,6 +80,7 @@ export default function Dashboard({ code }) {
         placeholder="Search Songs/Artists"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        className="search-form"
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
         {search &&
